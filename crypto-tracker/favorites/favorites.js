@@ -83,7 +83,7 @@ const debounce = (func, delay) => {
   debounceTimeout = setTimeout(func, delay);
 };
 
-// Fetch and display search results
+// ----------------------------Fetch and display search results---------------------------------------------------
 const fetchSearchResults = async (query) => {
   try {
     const response = await fetch(
@@ -110,7 +110,7 @@ const renderCoins = (coinsToDisplay, page, itemsPerPage) => {
   });
 };
 
-// Handle search input with debounce
+// --------------------------Handle search input with debounce--------------------------------------
 const handleSearchInput = () => {
   debounce(async () => {
     const searchQuery = searchBox.value.trim();
@@ -130,7 +130,7 @@ const handleSearchInput = () => {
     }
   }, 300);
 };
-
+// ------------------------------------------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", async () => {
   const favorites = getFavorites();
   if (favorites.length === 0) {
@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+// --------------------------------Sort by price ascending---------------------------------------------
 document
   .querySelector("#sort-price-asc")
   .addEventListener("click", () => sortCoinsByPrice("asc")); // Sort by price ascending
@@ -162,6 +163,7 @@ document
   .querySelector("#sort-market-desc")
   .addEventListener("click", () => sortCoinsByMarketCap("desc")); // Sort by volume descending
 
+//Shorting function 
 const sortCoinsByPrice = (order) => {
   if (order === "asc") {
     coins.sort((a, b) => a.current_price - b.current_price);
@@ -171,7 +173,7 @@ const sortCoinsByPrice = (order) => {
 
   renderFavorites(coins); // Render sorted coins
 };
-
+//Shorting function 
 const sortCoinsByVolume = (order) => {
   if (order === "asc") {
     coins.sort((a, b) => a.total_volume - b.total_volume);
@@ -181,6 +183,7 @@ const sortCoinsByVolume = (order) => {
 
   renderFavorites(coins); // Render sorted coins
 };
+//Shorting function 
 const sortCoinsByMarketCap = (order) => {
   if (order === "asc") {
     coins.sort((a, b) => a.market_cap - b.market_cap);

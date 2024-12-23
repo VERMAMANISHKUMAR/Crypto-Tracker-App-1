@@ -10,7 +10,7 @@ const sortVolumeDesc = document.getElementById("sort-volume-desc");
 const sortMarketAsc = document.getElementById("sort-market-asc");
 const sortMarketDesc = document.getElementById("sort-market-desc");
 
-// API request options
+// ---------------API request options---------------------
 const options = {
   method: "GET",
   headers: {
@@ -25,7 +25,7 @@ const BASE_URL = "https://api.coingecko.com/api/v3";
 let coins = []; // Array to store coin data
 let currentPage = 1; // Current page number for pagination
 
-// Fetch coins from API
+
 
 // Show shimmer effect during loading
 const showShimmer = () => {
